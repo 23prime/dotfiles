@@ -1,4 +1,6 @@
 (setq user-env-table '(
+("cases")
+("multicals")
 ("minted")
 ("algorithmic")
 ("algorithm")
