@@ -1,2 +1,6 @@
-:set prompt "λ>"
 let myName = "okkey"
+
+:set prompt "λ>"
+:set -XOverloadedStrings
+:set -XOverloadedLists
+
