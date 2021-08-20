@@ -1,7 +1,0 @@
-[core]
-	editor = emacs -nw
-[user]
-	name = 23prime
-	email = 23.prime.37@gmail.com
-[init]
-	defaultBranch = main
