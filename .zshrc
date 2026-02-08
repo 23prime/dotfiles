@@ -5,32 +5,6 @@
 
 
 # =================================================
-# Completion
-# =================================================
-autoload -Uz compinit && compinit
-
-
-# =================================================
-# History
-# =================================================
-HISTFILE="${ZDOTDIR:-$HOME}/.zhistory"
-HISTSIZE=10000
-SAVEHIST=10000
-
-setopt BANG_HIST                 # Treat the '!' character specially during expansion.
-setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
-setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY             # Share history between all sessions.
-setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
-setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
-setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
-setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
-setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
-setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
-setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
-setopt HIST_BEEP                 # Beep when accessing non-existent history.
-
-# =================================================
 # Setup managers and tools
 # =================================================
 # sheldon
@@ -57,27 +31,33 @@ eval "$(~/.local/bin/mise activate zsh)"
 # Haskell
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 
+
 # =================================================
-# key bindings #
+# History
 # =================================================
-bindkey '^L' forward-char
-bindkey '^H' backward-char
-bindkey '^K' kill-line
-bindkey '^Y' kill-line
-bindkey '^V' yank
-bindkey '^B' backward-delete-char
+HISTFILE="${ZDOTDIR:-$HOME}/.zhistory"
+HISTSIZE=10000
+SAVEHIST=10000
 
-function rename-session-to-current-directory() {
-  rename-session $(basename $(pwd))
-}
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
+setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
+setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
+setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
+setopt HIST_BEEP                 # Beep when accessing non-existent history.
 
-alias rs='rename-session-to-current-directory'
 
-function guake-new-tab() {
-  guake -n 0
-}
-zle -N guake-new-tab
-bindkey '^T' guake-new-tab
+# =================================================
+# Completion
+# =================================================
+autoload -Uz compinit && compinit
+
 
 # =================================================
 # aliases and functions
@@ -98,6 +78,22 @@ alias wn1='watch -n 1'
 alias m='mise'
 alias e='emacs -nw'
 alias ew='emacs'
+
+function fzf-tab() {
+  functions[compadd]=$functions[-ftb-compadd]
+  zle fzf-tab-complete
+}
+zle -N fzf-tab
+
+function rename-session-to-current-directory() {
+  rename-session $(basename $(pwd))
+}
+alias rs='rename-session-to-current-directory'
+
+function guake-new-tab() {
+  guake -n 0
+}
+zle -N guake-new-tab
 
 ANSI_COLORS_RESET='\033[0m'
 ANSI_COLORS_RED='\033[31m'
@@ -439,6 +435,21 @@ gh-auto-auth-switch
 
 # AikidoSec Safe-chain Zsh initialization script
 source ~/.safe-chain/scripts/init-posix.sh
+
+
+# =================================================
+# key bindings #
+# =================================================
+bindkey '^L' forward-char
+bindkey '^H' backward-char
+bindkey '^K' kill-line
+bindkey '^Y' kill-line
+bindkey '^V' yank
+bindkey '^B' backward-delete-char
+bindkey "^I" fzf-tab
+bindkey '^T' guake-new-tab
+
+
 
 # =================================================
 # Load local zshrc (post)
