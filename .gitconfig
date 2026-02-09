@@ -1,0 +1,21 @@
+[init]
+defaultBranch = main
+
+[pull]
+ff = only
+
+[user]
+name = 23prime
+email = 23.prime.37@gmail.com
+
+[includeIf "gitdir:~/develop/work/"]
+path = ~/.gitconfig-work
+
+[core]
+	editor = zed
+	editor = emacs
+	quotepath = false
+[include]
+	path = /home/okkey/.config/git/config.d/alias.conf
+[coderabbit]
+	machineId = cli/993aeb30fc444181bc894dc55b8ebaa7
