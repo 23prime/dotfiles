@@ -430,8 +430,6 @@ function gh-auto-auth-switch() {
 autoload -Uz add-zsh-hook
 add-zsh-hook chpwd gh-auto-auth-switch
 
-# Run on shell startup for current directory
-gh-auto-auth-switch
 
 # AikidoSec Safe-chain Zsh initialization script
 source ~/.safe-chain/scripts/init-posix.sh
@@ -448,7 +446,6 @@ bindkey '^V' yank
 bindkey '^B' backward-delete-char
 bindkey "^I" fzf-tab
 bindkey '^T' guake-new-tab
-
 
 
 # =================================================
