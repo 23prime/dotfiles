@@ -10,8 +10,8 @@
 # sheldon
 eval "$(sheldon source)"
 
-# Zellij
-eval "$(zellij setup --generate-auto-start zsh)"
+# Zellij by session manager (See: https://github.com/23prime/zism)
+zism --guake
 
 # Starship
 eval "$(starship init zsh)"
