@@ -11,7 +11,7 @@
 eval "$(sheldon source)"
 
 # Zellij by session manager (See: https://github.com/23prime/zism)
-zism --guake
+[ -z "$ZELLIJ" ] && zism --guake
 
 # Starship
 eval "$(starship init zsh)"
