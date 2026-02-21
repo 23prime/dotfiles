@@ -69,6 +69,7 @@ alias sz='szrc && szenv'
 
 ### Zellij ###
 alias zj='zellij'
+alias zg='zism --guake'
 
 ### Tools ###
 alias clip='xclip -selection clipboard -in'
