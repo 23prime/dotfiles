@@ -212,6 +212,9 @@ alias cpwdb='clip-pwdb'
 alias g='git'
 alias gh-url='gh repo view --json "url" --jq ".url"'
 
+alias mise-resolve-lockfile='git reset mise.lock && git restore mise.lock && mise lock'
+alias mrl='mise-resolve-lockfile'
+
 alias t='task'
 
 alias z='zed .'
@@ -433,7 +436,6 @@ add-zsh-hook chpwd gh-auto-auth-switch
 
 
 # AikidoSec Safe-chain Zsh initialization script
-source ~/.safe-chain/scripts/init-posix.sh
 
 
 # =================================================
@@ -453,3 +455,12 @@ bindkey '^T' guake-new-tab
 # Load local zshrc (post)
 # =================================================
 [ -f ~/.zshrc.local.post ] && source ~/.zshrc.local.post
+
+# pnpm
+export PNPM_HOME="/home/okkey/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
