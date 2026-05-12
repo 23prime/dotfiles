@@ -79,6 +79,7 @@ alias wn1='watch -n 1'
 alias m='mise'
 alias e='emacs -nw'
 alias ew='emacs'
+alias rm='rm -i'
 
 function fzf-tab() {
   functions[compadd]=$functions[-ftb-compadd]
