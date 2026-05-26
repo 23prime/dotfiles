@@ -378,7 +378,12 @@ function with-ask() {
   fi
 }
 
-alias cll='claude-launcher'
+function claude-launcher-otel() {
+    local token
+    token=$(op read "op://Personal/grafana_otel_token/OTEL_EXPORTER_OTLP_HEADERS")
+	OTEL_EXPORTER_OTLP_HEADERS="$token" ~/develop/claude-launcher/bin/claude-launcher "$@"
+}
+alias cll='claude-launcher-otel'
 
 alias ccv='claude-code-viewer'
 alias ccv23='claude-code-viewer --claude-dir ~/.claude-23prime --port 3041'
