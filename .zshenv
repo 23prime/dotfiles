@@ -4,6 +4,9 @@ export SPRING_PROFILES_ACTIVE=at-localpc
 export TF_LOG=DEBUG
 export TF_LOG_PATH=terraform.log
 
+export FZF_DEFAULT_COMMAND='fd --type file'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 path=(
   $HOME/.local/bin(N-/)
   $HOME/.cargo/bin(N-/)
