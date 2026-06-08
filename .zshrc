@@ -80,6 +80,8 @@ alias m='mise'
 alias e='emacs -nw'
 alias ew='emacs'
 alias rm='rm -i'
+alias vl='vivaldi'
+alias chrome='google-chrome-stable'
 
 function fzf-tab() {
   functions[compadd]=$functions[-ftb-compadd]
@@ -212,6 +214,11 @@ alias cpwdb='clip-pwdb'
 ### Development ###
 alias g='git'
 alias gh-url='gh repo view --json "url" --jq ".url"'
+
+function open-gh() {
+    vivaldi $(gh-url)
+}
+alias ogh='open-gh'
 
 alias mise-resolve-lockfile='git reset mise.lock && git restore mise.lock && mise lock'
 alias mrl='mise-resolve-lockfile'
