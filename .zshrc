@@ -57,6 +57,8 @@ setopt HIST_BEEP                 # Beep when accessing non-existent history.
 # Completion
 # =================================================
 autoload -Uz compinit && compinit
+_comp_options+=(globdots)
+setopt COMPLETE_ALIASES
 
 
 # =================================================
@@ -159,6 +161,7 @@ function purl() {
 alias ls='eza'
 alias ll='ls -lhF'
 alias la='ls -lahF'
+compdef _files ll la
 
 function trash() {
   if [[ "$1" == "--empty" ]]; then
