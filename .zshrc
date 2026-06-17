@@ -473,7 +473,7 @@ bindkey '^T' guake-new-tab
 [ -f ~/.zshrc.local.post ] && source ~/.zshrc.local.post
 
 # pnpm
-export PNPM_HOME="/home/okkey/.local/share/pnpm"
+export PNPM_HOME="~/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
