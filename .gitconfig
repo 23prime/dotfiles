@@ -1,16 +1,16 @@
 [init]
-defaultBranch = main
+	defaultBranch = main
 
 [pull]
-ff = only
+	ff = only
 
 [user]
-name = 23prime
-email = 23.prime.37@gmail.com
-signingkey = ~/.ssh/id_ed25519_github_sign.pub
+	name = 23prime
+	email = 23.prime.37@gmail.com
+	signingkey = ~/.ssh/id_ed25519_github_sign.pub
 
 [includeIf "gitdir:~/develop/work/"]
-path = ~/.gitconfig-work
+	path = ~/.gitconfig-work
 
 [gpg]
 	format = ssh
