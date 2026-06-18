@@ -12,10 +12,11 @@ email = 23.prime.37@gmail.com
 path = ~/.gitconfig-work
 
 [core]
-	editor = zed
 	editor = emacs
 	quotepath = false
+
 [include]
 	path = /home/okkey/.config/git/config.d/alias.conf
+
 [coderabbit]
 	machineId = cli/993aeb30fc444181bc894dc55b8ebaa7
