@@ -27,7 +27,7 @@
 	pager = delta
 
 [include]
-	path = /home/okkey/.config/git/config.d/alias.conf
+	path = ~/.config/git/config.d/alias.conf
 
 [coderabbit]
 	machineId = cli/993aeb30fc444181bc894dc55b8ebaa7
