@@ -24,9 +24,20 @@
 [core]
 	editor = emacs
 	quotepath = false
+	pager = delta
 
 [include]
 	path = /home/okkey/.config/git/config.d/alias.conf
 
 [coderabbit]
 	machineId = cli/993aeb30fc444181bc894dc55b8ebaa7
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	dark = true
+
+[merge]
+	conflictStyle = zdiff3
