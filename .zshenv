@@ -12,6 +12,7 @@ path=(
   $HOME/.cargo/bin(N-/)
   $HOME/.local/scripts(N-/)
   $HOME/.local/share/mise/shims(N-/)
+  $HOME/.opencode/bin(N-/)
 
   /bin:$PATH(N-/)
   /opt(N-/)

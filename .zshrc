@@ -407,6 +407,8 @@ alias cpl='copilot'
 alias copilot-ask='with-ask copilot --continue'
 alias cpa='copilot-ask'
 
+alias oc='opencode'
+
 ### GitHub CLI auto-switch ###
 # Define mapping: git user.name -> gh account
 typeset -A GH_ACCOUNT_MAP
